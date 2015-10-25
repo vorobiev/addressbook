@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+valid:
+  contact_id: 1
+  name: test@test.com
+
+invalid:
+  contact_id: 
+  name: MyString
