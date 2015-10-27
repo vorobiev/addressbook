@@ -1,0 +1,4 @@
+h3 = t('phonebook.hints.create')
+= simple_form_for @contact, html: { class: 'pure-form pure-form-aligned' } do |f|
+  fieldset
+    = render partial: 'form', locals: { f: f}

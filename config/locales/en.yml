@@ -14,6 +14,8 @@ en:
       contact:
         first_name: First Name
         last_name: Last Name
+        phones: Phones
+        emails: Emails
       phone:
         name: Phone
       email:
@@ -24,3 +26,44 @@ en:
           attributes:
             first_name:
               taken: This contact has been added already
+  phonebook:
+    title: Address book
+    empty: No contacts found
+    table:
+      show_html: '<i class="fa fa-info"></i>'
+      edit_html: '<i class="fa fa-edit"></i>'
+      delete_html: '<i class="fa fa-remove"></i>'
+    actions:
+      add: Add
+      edit: 'Edit'
+      delete: 'Delete'
+      create: 'Create'
+      update: 'Update'
+      export: 'Export'
+      import: 'Import'
+      share: 'Share'
+    hints:
+      import: Select CSV file to import
+      create: Create new contact
+      update: 'Updating contact %{first_name} %{last_name}'
+      share: 'Share this contact to any email'
+    notices:
+      contact:
+        created: Contact created
+        updated: Contact updated
+        deleted: Contact deleted
+      phone:
+        created: Phone added
+        deleted: Phone deleted
+      email:
+        created: Email added
+        deleted: Email deleted
+      import:
+        processed:
+          one: 1 contact imported
+          other: '%{count} contacts imported'
+      share:
+        sent: 'Contact has been shared'
+    mail:
+      subject: Contact info
+      text: 'Here is contact info:'

@@ -1,0 +1,7 @@
+h3 = t("phonebook.hints.share")
+= form_tag sendmail_contact_path(@contact), class: 'pure-form pure-form-aligned', id: 'share_form' do 
+  .pure-control-group
+    label = Email.model_name.human
+    = text_field_tag :email
+  .pure-controls
+    = submit_tag t('phonebook.actions.share'), class: 'pure-button button-primary'

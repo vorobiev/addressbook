@@ -1,0 +1,5 @@
+tr
+  td = best_in_place email, :name, url: contact_email_path(contact, email)
+  td
+   	- if emails_size > 1
+      = link_to t('phonebook.table.delete_html'), contact_email_path(contact, email), method: :delete, class: 'pure-button button-error'

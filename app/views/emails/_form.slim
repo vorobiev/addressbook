@@ -1,0 +1,4 @@
+= simple_form_for [contact, email], html: { class: 'pure-form pure-form-aligned' } do |f|
+  fieldset
+    = f.input :name, as: :email, wrapper_class: 'pure-control-group'
+    = f.submit t('phonebook.actions.create'), class: 'pure-button button-primary'

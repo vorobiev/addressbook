@@ -1,0 +1,12 @@
+= f.input :first_name, wrapper_class: 'pure-control-group'
+= f.input :last_name, wrapper_class: 'pure-control-group'
+- if @contact.new_record?
+  = f.simple_fields_for :phones do |phone|
+    = phone.input :name, wrapper_class: 'pure-control-group'
+  = f.simple_fields_for :emails do |email|
+    = email.input :name, as: :email, wrapper_class: 'pure-control-group'
+.pure-controls
+  - if @contact.new_record? 
+    = f.submit t('phonebook.actions.create'), class: 'pure-button button-primary'
+  - else
+    = f.submit t('phonebook.actions.update'), class: 'pure-button button-primary'  

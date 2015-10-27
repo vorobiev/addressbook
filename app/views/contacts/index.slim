@@ -1,0 +1,38 @@
+h3 = Contact.model_name.human(count: @contacts.size)
+
+- if @contacts.any?
+  table.pure-table.pure-table-horizontal.contacts
+    thead
+      tr
+        - [ :last_name, :first_name, :phones, :emails ].each do |column|
+          th = Contact.human_attribute_name(column)
+        th
+    tbody
+      - @contacts.each do |contact|
+        tr
+          td = contact.last_name
+          td = contact.first_name
+          td
+            - if contact.phones.any?
+              ul.list-unstyled 
+                - contact.phones.all.map(&:name).each do |phone|
+                  li = phone
+          td 
+            - if contact.emails.any?
+              ul.list-unstyled
+                - contact.emails.all.map(&:name).each do |email|
+                  li = email
+          td
+            div
+              = link_to t('phonebook.table.show_html'), contact_path(contact), class: 'button-primary pure-button'
+              | &nbsp;
+              = link_to t('phonebook.table.edit_html'), edit_contact_path(contact), class: 'button-warning pure-button'
+              | &nbsp;
+              = link_to t('phonebook.table.delete_html'), contact_path(contact), method: :delete, class: 'button-error pure-button'
+  .actions
+    = link_to t('phonebook.actions.add'), new_contact_path, class: 'pure-button button-success'
+- else
+  .is-center.hero-block
+    p = t('phonebook.empty')
+    = link_to t('phonebook.actions.add'), new_contact_path, class: 'pure-button button-primary'
+

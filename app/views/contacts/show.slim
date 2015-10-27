@@ -1,0 +1,29 @@
+h3 = [@contact.last_name, @contact.first_name].join(' ')
+
+.pure-g
+  div.pure-u-2-5
+    h4 = Phone.model_name.human(count: @contact.phones.size) 
+    table.full-width
+      - @contact.phones.each do |phone|
+        = render partial: 'phones/item', locals: { phone: phone, contact: @contact, phones_size: @contact.phones.size }
+    
+    a#show-phones-form.pure-button.button-primary href="#" = t('phonebook.actions.add')
+    #phones-form.hidden
+      = render partial: 'phones/form', locals: { phone: Phone.new, contact: @contact }
+  div.pure-u-2-5
+    h4 = Email.model_name.human(count: @contact.emails.size ) 
+
+    table.full-width
+      - @contact.emails.each do |email|
+        = render partial: 'emails/item', locals: { email: email, contact: @contact, emails_size: @contact.emails.size }
+
+    a#show-emails-form.pure-button.button-primary href="#" = t('phonebook.actions.add')    
+    #emails-form.hidden
+      = render partial: 'emails/form', locals: { email: Email.new, contact: @contact }
+
+  div.pure-u-1-5
+    = link_to t('phonebook.actions.edit'), edit_contact_path(@contact), class: 'pure-button button-warning'
+    | &nbsp;
+    = link_to t('phonebook.actions.delete'), contact_path(@contact), method: :delete, class: 'pure-button button-error'
+    | &nbsp;
+    = link_to t('phonebook.actions.share'), share_contact_path(@contact), class: 'pure-button button-primary'
